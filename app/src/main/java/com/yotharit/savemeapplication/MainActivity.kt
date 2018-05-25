@@ -15,7 +15,6 @@ import android.widget.TextView
 import android.widget.Toast
 import antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
 import br.com.bloder.magic.view.MagicButton
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -27,12 +26,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var addButton: MagicButton
     lateinit var snackbar: Snackbar
     lateinit var wallet: Wallet
-    lateinit var tvName : TextView
-    lateinit var tvInfo : TextView
-    lateinit var tvBalance : TextView
-    lateinit var tvSum : TextView
-    lateinit var tvStatus : TextView
-    lateinit var circularProgress : CircularProgressIndicator
+    lateinit var tvName: TextView
+    lateinit var tvInfo: TextView
+    lateinit var tvBalance: TextView
+    lateinit var tvSum: TextView
+    lateinit var tvStatus: TextView
+    lateinit var circularProgress: CircularProgressIndicator
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,12 +48,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         tvInfo = findViewById(R.id.tvInfo)
         tvBalance = findViewById(R.id.tvBalance)
         tvSum = findViewById(R.id.tvSum)
-        tvStatus =findViewById(R.id.tvStatus)
+        tvStatus = findViewById(R.id.tvStatus)
         updateText()
 
 
         tvName.text = wallet.currentUser.callingName
-        tvInfo.text = wallet.currentUser.firstName + " " + wallet.currentUser.surname +" Income : " + wallet.currentUser.income.toInt()
+        tvInfo.text = wallet.currentUser.firstName + " " + wallet.currentUser.surname + " Income : " + wallet.currentUser.income.toInt()
         circularProgress.setMaxProgress(wallet.currentUser.allMoney.toInt());
         circularProgress.setCurrentProgress(wallet.currentUser.currentUsage.toInt());
 
@@ -117,6 +116,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             override fun onClick(view: View, position: Int) {
             }
+
             override fun onLongClick(view: View, position: Int) {
                 val transaction = wallet.transactionList.get(position)
                 snackbar = Snackbar.make(this@MainActivity.findViewById(R.id.myCoordinatorLayout),
@@ -131,14 +131,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun updateText() {
         tvBalance.text = "Balance : " + wallet.currentUser.currentMoney + " Baht"
         tvSum.text = "You've used " + wallet.currentUser.currentUsage + " Baht so far"
-        if(wallet.exceedIntention()) tvStatus.text = "Exceed your intention!!!"
+        if (wallet.exceedIntention()) tvStatus.text = "Exceed your intention!!!"
         else tvStatus.text = "Not exceed your intention!!!"
         circularProgress.setCurrentProgress(wallet.currentUser.currentUsage.toInt());
     }
 
     private fun prepareData() {
         var user = User("Tharit", "Pongsaneh", "It's me yo", 80
-                ,10000.0, 10000.0,8000.0 ,0.0,10000.0)
+                , 10000.0, 10000.0, 8000.0, 0.0, 10000.0)
         wallet = Wallet()
         wallet.setUser(user)
     }
