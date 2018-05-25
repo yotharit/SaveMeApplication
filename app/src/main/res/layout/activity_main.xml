@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/myCoordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FA8072"
+                android:weightSum="10">
+                <FrameLayout
+                    android:id="@+id/userLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_alignParentLeft="true">
+                    <ImageButton
+                        android:layout_width="64dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/user"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_toRightOf="@id/userLogo"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NAME"
+                        android:textColor="@android:color/white"/>
+                    <TextView
+                        android:id="@+id/tvInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AMOUNT : 0 BATH"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.5"
+                android:background="@android:color/white"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                        android:id="@+id/circular_progress"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        app:progressColor="@color/colorPrimary"
+                        app:progressBackgroundColor="#efefefef"
+                        app:progressStrokeWidth="8dp"
+                        app:drawDot="true"
+                        app:dotColor="@color/colorPrimaryDark"
+                        app:dotWidth="16dp"
+                        app:textSize="0sp"
+                        app:textColor="@color/colorPrimaryDark"
+                        app:useProgressTextDelimiter="true"
+                        app:progressTextDelimiter="."
+                        app:progressTextPrefix="$"
+                        app:progressTextSuffix="%" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tvBalance"
+                            android:layout_gravity="left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Balance : x Baht"/>
+                        <TextView
+                            android:id="@+id/tvSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="You've used 1200 Baht so far"/>
+                        <TextView
+                            android:id="@+id/tvStatus"
+                            android:layout_gravity="left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Exceed Intention!!!!"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7.5">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"/>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <br.com.bloder.magic.view.MagicButton
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:magic_button_size="50dp"
+        app:button_icon="@drawable/plus"
+        app:button_icon_width="25dp"
+        app:button_icon_height="25dp"
+        app:hide_text="TRANSACTION!"
+        app:hide_text_size="6sp"
+        app:hide_text_color="@android:color/white"
+        app:icon_button_color="#CD5C5C"
+        app:expandable_area_color="#FA8072"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"/>
+
+    </RelativeLayout>
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
